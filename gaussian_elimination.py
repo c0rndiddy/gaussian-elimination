@@ -1,8 +1,4 @@
 '''
-#Needed for array() and dot()
-from numpy import *
-
-
 #Printing matrices using NumPy:
 
 #Convert a list of lists into an array:
@@ -35,19 +31,15 @@ print(M_listoflists) #[[1, -2, 3], [3, 10, 1], [1, 5, 3]]
 from numpy import *
 from numpy import lcm
 
-# Problem 1
 def print_matrix(M_lol):
     '''Print nested list M_lol as a matrix
     '''
     for i,j in zip(range(len(M_lol)), range(len(M_lol[0]))):
         M_lol[i][j] = float(M_lol[i][j])
-        # this just converts everything in the matrix to a float,
-        # not neccesary but kinda aesthetic
 
     print(array(M_lol))
 
 
-# Problem 2
 def get_lead_ind(row):
     '''Return index of first non-zero element in list row
     if row is all 0s, return length of row
@@ -59,8 +51,6 @@ def get_lead_ind(row):
     return len(row)
 
 
-
-#Problem 3
 def get_row_to_swap(M, start_i):
     '''Check if row start_i in matrix M should be
     swapped with another row below(!) it
@@ -84,7 +74,6 @@ def get_row_to_swap(M, start_i):
         return row
 
 
-# Problem 4
 def add_rows_coefs(r1, c1, r2, c2):
     '''Return list obtained by doing scalar multiplication of
     rows r1, r2 by c1, c2 and then adding r1 and r2
@@ -96,7 +85,6 @@ def add_rows_coefs(r1, c1, r2, c2):
     return res
 
 
-# Problem 5
 def eliminate(M, row_to_sub, best_lead_ind):
     '''Eliminate the values at best_lead_ind of
     each row after row row_to_sub by subtracing a
@@ -121,7 +109,6 @@ def eliminate(M, row_to_sub, best_lead_ind):
     return M
 
 
-# Problem 6
 def forward_step(M):
     '''Use process of swapping rows and eliminating coefficients
     to convert matrix M to row echelon form
@@ -159,8 +146,6 @@ def forward_step(M):
     return M
 
 
-
-# Problem 7
 def eliminate_above(M, row_to_sub, best_lead_ind):
     '''Same as eliminate but does it for rows above row row_to_sub
     '''
@@ -180,8 +165,7 @@ def eliminate_above(M, row_to_sub, best_lead_ind):
         else:
             continue
 
-
-
+            
 def backward_step(M):
     '''Convert matrix M to reduced normal form
     '''
@@ -217,10 +201,6 @@ def backward_step(M):
     return M
 
 
-
-# Problem 8
-'''I don't actually know what problem 8 is about lol help
-'''
 def solve_that_shit(M):
     print("The matrix is currently:")
     print_matrix(M)
@@ -240,12 +220,7 @@ if __name__ == '__main__':
     M = [[0, 0, 1, 0, 2],
          [1, 0, 2, 3, 4],
          [3, 0, 4, 2, 1],
-         [1, 0, 1, 1, 2]]    # applying forward_step makes this last row [0, 0, 0, 0, 14],
-                             # which is different from guerzhoy's example of [0, 0, 0, 0, 2],
-                             # but they're scalar multiples of each other, ie the same thing,
-                             # so i left it alone, but u can fix it if you want
-                             # note that the matrix is eventually simplified
-                             # at the end of everything in the backward_step function
+         [1, 0, 1, 1, 2]]    
 
     N = [[5, 6, 7, 8],
          [0, 0, 1, 1],
